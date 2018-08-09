@@ -11,6 +11,7 @@ sales_ts <- ts(sales, start = 2000,end = 2015, frequency = 4)
 sales_ts <- ts(sales, start = c(2000 ,end = 2015), frequency = 12)
 
 #Plotting time series
+
 plot.ts(sales_ts)
 
 #Transformation of timeseries in case of seasonal and random fluctuations
@@ -50,3 +51,28 @@ plot(sales_ts_decompose)
 
 sales_ts_without_random <- sales_ts -sales_ts_decompose$random
 sales_ts_without_random
+
+library(forecast)
+#Forecasting for time series that has only trend component
+
+sales_yearly_forecast <- HoltWinters(sales_ts, gamma=F)
+sales_yearly_forecast
+plot(sales_yearly_forecast)
+
+#Forecasting future values
+sales_yearly_forecast_future <- forecast:::forecast.HoltWinters(sales_yearly_forecast,h=10)
+forecast:::plot.forecast(sales_yearly_forecast_future)
+plot(sales_yearly_forecast_future)
+
+
+#Forecasting for time series that has both trend and seasonality
+plot.ts(AirPassengers)
+airpassengers_model <- HoltWinters(AirPassengers)
+plot(airpassengers_model)
+
+airpassengers_model
+airpassengers_forecast <- forecast:::forecast.HoltWinters(airpassengers_model,h=10)
+forecast:::plot.forecast(airpassengers_forecast)
+
+plot.ts(airpassengers_forecast$residuals)
+ 
