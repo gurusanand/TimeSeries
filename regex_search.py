@@ -16,8 +16,8 @@ save_fname = os.path.join(save_dir, 'results.xlsx')
 fpaths = glob.glob(os.path.join(base_dir, '*.txt'))
 page_search_sent = 'ELECTRONIC AND FAX INSTRUCTIONS AUTHORISATION AND INDEMNITY LETTER'
 company_pattern = re.compile(r'^Company:\s+(.*)$', re.IGNORECASE)
-inst_line_pattern = re.compile(r"^\(([A-H]{1})\).+\((.*)\)", re.IGNORECASE)
-inst_pattern = re.compile(r'\((.*?)\)')
+inst_line_pattern = re.compile(r'^\(([A-H]{1})\).+"(.*)".', re.IGNORECASE)
+inst_pattern = re.compile(r'"(.*?)"')
 results = {
     'company_name': [],
     'instructions': []
@@ -35,8 +35,8 @@ for data in all_data:
       inst_line_match = re.search(inst_line_pattern, line)
       company_match = re.findall(company_pattern, line)
       if inst_line_match:
-        instructions.append(re.findall(inst_pattern, line)[1])
-        print(f'Instruction: {re.findall(inst_pattern, line)[1]}')
+        instructions.append(re.findall(inst_pattern, line)[0])
+        print(f'Instruction: {re.findall(inst_pattern, line)[0]}')
       elif company_match:
         company_name.append(company_match[0])
         print(f'Company Name: {company_match[0]}')
