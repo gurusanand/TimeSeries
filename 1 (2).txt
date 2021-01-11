@@ -77,3 +77,34 @@ evaluation, `torch.no_grad()` phase is used to stop the calculation of gradients
 The output would be an (1 x N) array of predicted logits for which the index of the array corresponds to the label classification. We perform an argmax to get the index with 
 
 the highest score and that corresponds to the predicted classification. 
+
+++++++++++++++++++++
+
+
+Trade processing is a complex business process. Customer application, Bill of Lading, Transport Documents having  heterogeneous participants and disparate operational environment of products and services delivery aggravate the complexity of this business process. Front office operations include sales pipeline, credit pipeline, regulations management and relationship management. The back office operations include trade document processing, anti money laundering checks  and funding. In this project, our focus is to improve the back office operations.
+
+Back office operations high level business process I depicted in the figure 1. Document processing is the stage where the business users receive a set of documents from the corporate lender. The key data points from the documents is extracted and sent to the next stage. Anti money laundering process involves  laws, regulations and procedures to  prevent criminal behaviors in financial transactions. Once the checks are successful, the funding team processes the loan and funds the lender.
+
+The key challenge in the document process is the voluminous and variety of document set. Each trade document request involves more than 5 pages on an average and 10 customers on an average per day.   The variety challenge includes the type of the documents; invoices, bill of lading, courier services, air way and additional supporting documents. The task of the document processing is to extract data points from such humongous datasets.
+
+Currently, data processing is done manually by makers and checkers. A checklist of bank rules, conventional methods and personal judgment are used to extract the data points from documents. The first challenges is that this painstaking and tedious process results in trade process delay and introduces risk of human errors. The second challenge is the accuracy of the data points. For example, the customers submit documents with spelling errors, non-standard currency formats and date formats. Despite the increase in inefficiency in the process most of the banks are reluctant to use web applications to simplify document processing stage. For example, the web application is a platform for the corporate loan applications and when customers submit the applications, the data points can be easily extracted automatically with simple rules. However, the customers are reluctant to use the web applications as the customers are reluctant to move away from the traditional methods. For example, they prefer to generate the invoices from their organization systems and submit as pdf files as it is convenient for them rather than changing their systems or manually entering the data in the bank web applications.    
+
+To overcome these issues, in this project we propose deep learning and NLP based system for document processing in trade operations. Deep learning have been fruitfully used in a variety of business fields including marketing, accounting, healthcare and finance. Most of the studies have used neural networks for predicting stock market predictions,Trading and investment applications and credit and loan applications. Natural language processing (NLP) provides algorithms and techniques to analyse human language computationally.  It has been used successfully for spell checks , text extraction and data formats.
+
+This Phoenix project aims to develop a trade operations data extraction system (TODES) using deep learning and NLP techniques.  The purpose of using the deep learning algorithm in document processing stage is to simplify a makers’ and checkers’ job, to reduce human errors and to achieve more efficiency and productivity. Secondly, the approach uses natural language processing techniques to  address the challenge of spelling errors and non-standard formats. This approach explores the power of using deep learning and NLP models in banks and the key general objectives of this project are:
+
+To apply deep learning techniques to improve the efficiency in data point extraction from the voluminous document sets
+To apply the natural language processing techniques to improve the accuracy in data point extraction from the voluminous document sets.
+1. What is corporate Trade Operations
+
+Business loans, are loans  given to companies and other such entities to meet their day-to-day  expenses, fund their working capital requirements and expansion etc. They are also called as corporate loans. A couple of examples could include infrastructure finance, working capital finance, term loans, letter of credit etc.
+
+2. What is the challenge
+
+Ensure timely and prompt processing as per committed SLA. Ensure processes and controls adheres to guidelines (internal, regulatory, etc.). Ensure timely and effective escalation of potential issues and resolution. Work closely with various internal and external stakeholders. Process end-to-end loan transactions, including and not limited to loan disbursement, documentation handling (checks, preparation and safekeeping), static data updates, repayment, refund, follow-up with internal and external stakeholders, etc. (Front Office, Compliance, Credit, etc.) to complete required processing and resolve issues arising
+
+3. Current approaches to challenge
+
+Most of the Financial Institutions are receiving the pdf scanned documents from the customer via email or fax. Most of the customers are reluctant to use the web based applications to send their details. The FI corporate loan operations team are manually reading the documents and entering the required data points manually into the system. It is a time consuming process.
+
+
