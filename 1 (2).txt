@@ -1,2 +1,79 @@
 The profiles of the applicants have been uploaded on to One Drive and the link is as follows:
 https://ibforgsg-my.sharepoint.com/:f:/g/personal/beautrice_ibf_org_sg/EpXqet31Te5AtJ1e0xA8jGoBNvAK-_zJfNB3txWsJNMYVg
+Classification
+
+Task
+Classify a given scanned shipping document into its respective document category
+
+Dataset
+Over 750 shipping documents together with its target document labels. Total of 6 document classifications, namely:
+
+Application
+Invoice
+Bill of Lading
+Insurance
+Certificate of Origin
+Others
+Each document was received in PDF format and an external OCR application was used to provide the text format of each document.
+
+1. Data Preprocessing
+For all input documents for training and evaluation, the following steps were taken to preprocess the text input for better results:
+
+Normalize unicode characters
+The OCR process will generate non-alphanumeric unicode characters that are similar to English alphabets. This step normalizes these characters into their canonical form. 
+
+Example: ( Å → A )
+
+Remove repeated spaces and tabs and replace with single white space
+
+Lower text to non-capitalized form
+
+Remove stopwords using NLTK stopwords dictionary
+
+Removes all manner of punctuation
+Examples: ( , : " ' ;)
+2. Training
+From the transformers library, BertTokenizer was used to tokenize the input text and BertSequenceClassification was used to initialize the classification model for BERT.
+
+Tokenization
+
+We set the number of tokens to 500 tokens for each input, truncating text that is too long as well as padding up to 500 tokens. The attention masks are also generated; 
+
+attention masks are binary tensors that will indicate to BERT which parts of the text to ignore. In this case, it will ignore the padded tokens.
+
+BERT Model
+
+The BERT model version used is the pre-trained bert-base-uncased with 12 transformer layers and 768 hidden vectors.
+
+Training Parameters
+
+Training and validation split: 90%-10%
+Batch size: 5
+Epochs: 5
+Loss Function: Cross-Entropy
+Optimizer: AdamW (https://arxiv.org/abs/1711.05101)
+Hyperparameters:
+Learning Rate: 2e-5
+Epsilon: 1e-8
+In each epoch, we do a forward pass for each batch and we backpropagate given the calculated gradients and update the BERT parameters. The gradients are clipped to prevent 
+
+them from getting too large with each pass.
+
+Within each epoch after training, the model will be evaluated against the validation dataset and the validation loss and accuracy are saved.
+
+3. Prediction
+Using the final BERT fine-tuned model, the prediction phase is essentially the same as the forward pass in the training phase. For a given unseen dataset (evaluation), 
+
+preprocess the inputs as described in Step 1 Data Preprocessing. This is to ensure that the BERT model is fed the same formated text during evaluation as it was during 
+
+training. 
+
+With respect to initializing the models, the main difference between train and evaluation phase is to set the `model.eval()` instead of `model.train()` during prediction. This 
+
+is to notify pyTorch that the model is performing inference and this affects the batch means and standard deviations used for batchnorm and dropout layers. In addition, during 
+
+evaluation, `torch.no_grad()` phase is used to stop the calculation of gradients as this is not needed during evaluation. This can speed up prediction and reduce memory usage. 
+
+The output would be an (1 x N) array of predicted logits for which the index of the array corresponds to the label classification. We perform an argmax to get the index with 
+
+the highest score and that corresponds to the predicted classification. 
