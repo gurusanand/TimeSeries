@@ -107,4 +107,25 @@ Ensure timely and prompt processing as per committed SLA. Ensure processes and c
 
 Most of the Financial Institutions are receiving the pdf scanned documents from the customer via email or fax. Most of the customers are reluctant to use the web based applications to send their details. The FI corporate loan operations team are manually reading the documents and entering the required data points manually into the system. It is a time consuming process.
 
++++++++++++++++++++++++++++++++++++++++++++++++
+ When	Fri Jan 15, 2021 11am – 11:50am (HKT)
+Where	https://meetingsapac7.webex.com/meetingsapac7/j.php?MTID=m80ca8c272114d4bd4ed3a1caad18ca72
+
+
+Join by meeting number
+Meeting number (access code): 158 889 4987
+Meeting password: JtpM823JUaa (58768235 from video systems)
+ 
+hoenix Demo
+View on Google Calendar
+When	Fri Jan 15, 2021 3pm – 3:50pm (HKT)
+Where	https://meetingsapac7.webex.com/meetingsapac7/j.php?MTID=mea5133f89976d043a65bdde95672f9d2
+Who	Cisco Webex*
+Join by meeting number
+Meeting number (access code): 158 940 2341
+Meeting password: 3vUV6QftYh5 (38886738 from video systems)
+ 
+ 
+
+
 
